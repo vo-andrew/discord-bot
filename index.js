@@ -17,8 +17,8 @@ for (const file of commandFiles) {
 // The amount (in seconds) that the user will have to wait before being able to properly use that command again
 const cooldowns = new Discord.Collection();
 
-// randomizedUsers holds the nicknames of the chosen randomized users
-let randomizedUsers = [];
+// randomizedUsers holds the nicknames of the chosen randomized users mapped per guild
+let randomizedUsers = new Discord.Collection();
 
 // Ready event
 client.on("ready", () => {
@@ -64,7 +64,10 @@ client.on("message", async msg => {
   cooldowns.set(command.name, now);
   // Execute commands
   try {
-    args.push(randomizedUsers);
+    if (!(msg.guild.id in randomizedUsers)) {
+      randomizedUsers[msg.guild.id] = [];
+    }
+    args.push(randomizedUsers[msg.guild.id]);
 	  command.execute(msg, args);
   } catch(error) {
 	  console.error(error);

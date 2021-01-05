@@ -1,4 +1,33 @@
-# Scrim Randomizer Bot
+<h1 align="center">
+  <br>
+  <a href="https://github.com/vo-andrew/discord-bot">
+  <img src="https://www.online-stopwatch.com/images/dice.png">
+  </a>
+  <br>
+  Scrim Randomizer Bot
+  <br>
+</h1>
+
+<h4 align="center">Fully randomized League of Legends teams and builds.</h4>
+
+<p align="center">
+  <a href=#>
+    <img src="https://discordapp.com/api/guilds/185946930822512641/widget.png?style=shield">
+  </a>
+
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/pypi/pyversions/Red-Discordbot">
+  </a>
+  <a href="https://discord.js.org/#/">
+     <img src="https://img.shields.io/badge/discord-js-yellow">
+  </a>
+  <a href=#>
+    <img src="https://img.shields.io/badge/node%40latest-%3E%3D12.0.0-brightgreen">
+  </a>
+  <a href=#>
+    <img src="https://img.shields.io/badge/docker%20build-passing-brightgreen">
+  </a>
+</p>
 
 ## What is Scrim Randomizer Bot?
 
@@ -21,3 +50,6 @@ When a user sends a bot command to Scrim Randomizer, the user can select which m
 `!r aram [same]` - Generates random champions and builds for ARAM. Use the optional same keyword to randomize the same users.
                             
 `!r reroll <sr/aram>` - Rerolls your current champion and build for Summoner's Rift/ARAM."
+
+## Additional Notes
+The bot is currently deployed on a Microsoft Azure Standard_B1s VM instance.

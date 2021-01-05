@@ -1,0 +1,25 @@
+{
+    "name": "discord-bot",
+    "version": "1.0.0",
+    "description": "A Discord bot that utilizes the Riot Games API to create teams and builds.",
+    "main": "index.js",
+    "dependencies": {
+      "discord.js": "^12.5.1",
+      "dotenv": "^8.2.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vo-andrew/discord-bot.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/vo-andrew/discord-bot/issues"
+    },
+    "homepage": "https://github.com/vo-andrew/discord-bot#readme"
+  }
+  

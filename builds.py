@@ -124,7 +124,8 @@ def reroll_build(num_people, index, aram=False):
 
 if __name__ == "__main__":
     # Retrieve arguments from command line
-    num_people, aram_bool, reroll_bool = int(sys.argv[1]), sys.argv[2] == "true", sys.argv[3] == "true"
+    people, aram_bool, reroll_bool = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true"
+    num_people = len(people)
     if reroll_bool:
         index = int(sys.argv[4])
         reroll_build(num_people, index, aram_bool)

@@ -25,9 +25,9 @@ module.exports = {
                 return;
             }
             if (args[0] === "sr") {
-                await spawnSync("python3", ["builds.py", `${randomizedUsers.length}`, "false", "true", `${index}`]);
+                await spawnSync("python3", ["builds.py", `${randomizedUsers}`, "false", "true", `${index}`]);
             } else if (args[0] === "aram") {
-                await spawnSync("python3", ["builds.py", `${randomizedUsers.length}`, "true", "true", `${index}`]);
+                await spawnSync("python3", ["builds.py", `${randomizedUsers}`, "true", "true", `${index}`]);
             } else {
                 msg.reply("You did not specify the gamemode you wanted to reroll for.");
                 return;

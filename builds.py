@@ -6,7 +6,8 @@ import matplotlib.gridspec as gridspec
 import numpy as np
 import sys
 
-def generate_builds(num_people, aram=False):
+def generate_builds(people, aram=False):
+    num_people = len(people)
     if num_people < 2:
         return
 
@@ -27,7 +28,7 @@ def generate_builds(num_people, aram=False):
         gs = fig.add_gridspec(6, 6)
         gs.update(wspace=0, hspace=0.03)
         ax1 = fig.add_subplot(gs[:2, :2])
-        ax1.set_title("Player {}".format(pos + 1))
+        ax1.set_title("{}".format(people[pos][:7]))
         ax1.imshow(plt.imread("./champs/{}.png".format(random_champ_ids[pos])))
         ax1.set_axis_off()
         ax2 = fig.add_subplot(gs[0, 2])
@@ -65,7 +66,8 @@ def generate_builds(num_people, aram=False):
 
     plt.imsave("./result.jpg", canvas)
 
-def reroll_build(num_people, index, aram=False):
+def reroll_build(people, index, aram=False):
+    num_people = len(people)
     if num_people < 2:
         return
 
@@ -83,7 +85,7 @@ def reroll_build(num_people, index, aram=False):
     gs = fig.add_gridspec(6, 6)
     gs.update(wspace=0, hspace=0.03)
     ax1 = fig.add_subplot(gs[:2, :2])
-    ax1.set_title("Player {}".format(index + 1))
+    ax1.set_title("{}".format(people[index][:7]))
     ax1.imshow(plt.imread("./champs/{}.png".format(random_champ_id)))
     ax1.set_axis_off()
     ax2 = fig.add_subplot(gs[0, 2])
@@ -125,9 +127,8 @@ def reroll_build(num_people, index, aram=False):
 if __name__ == "__main__":
     # Retrieve arguments from command line
     people, aram_bool, reroll_bool = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true"
-    num_people = len(people)
     if reroll_bool:
         index = int(sys.argv[4])
-        reroll_build(num_people, index, aram_bool)
+        reroll_build(people, index, aram_bool)
     else:
-        generate_builds(num_people, aram_bool)
+        generate_builds(people, aram_bool)

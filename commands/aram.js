@@ -16,7 +16,7 @@ module.exports = {
             if (success || args[0] === "same") {
                 success = Teams.shuffle(msg, randomizedUsers);
                 if (success) {
-                    await spawnSync("python3", ["builds.py", `${randomizedUsers}`, "true", "false"]);
+                    await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "true", "false"]);
                     DisplayBuild.displayBuild(msg);
                 }
             }

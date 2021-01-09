@@ -24,7 +24,7 @@ module.exports = {
                 msg.reply("Please generate teams before rerolling.");
                 return;
             }
-            randomizedUsers = randomizedUsers.map(user => user.split(" ")[0]);
+            randomizedUsers = randomizedUsers.map(user => user.split(" ").join("_"));
             if (args[0] === "sr") {
                 await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "false", "true", `${index}`]);
             } else if (args[0] === "aram") {

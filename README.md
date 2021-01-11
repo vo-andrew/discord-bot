@@ -1,10 +1,9 @@
 <h1 align="center">
-  <br>
   <a href="https://github.com/vo-andrew/discord-bot">
-  <img src="https://www.online-stopwatch.com/images/dice.png">
+  <img src="https://static.wikia.nocookie.net/leagueoflegends/images/4/42/Sentinel_Runespirit_profileicon.png/revision/latest/top-crop/width/220/height/220?cb=20190903211816">
   </a>
   <br>
-  Scrim Randomizer Bot
+  Sentinel Bot
   <br>
 </h1>
 
@@ -29,17 +28,17 @@
   </a>
 </p>
 
-## What is Scrim Randomizer Bot?
+## What is Sentinel Bot?
 
-Scrim Randomizer is a Discord bot that randomly creates teams of users and generates League of Legends builds. Users can create teams and generate builds without ever having to leave the Discord application.
+Sentinel Bot is a Discord bot that randomly creates teams of users and generates League of Legends builds. Users can create teams and generate builds without ever having to leave the Discord application.
 
 ## How does it work?
 
-When a user sends a bot command to Scrim Randomizer, the user can select which members in the Discord server will participate in the randomized teams. After selecting users, the bot will send a GET request to the Riot Games API to generate builds for each person in the teams.
+When a user sends a bot command to Sentinel Bot, the user can select which members in the Discord server will participate in the randomized teams. After selecting users, the bot will send a GET request to the Riot Games API to generate builds for each person in the teams.
 
 ## Features & Commands
 
-`!r help` - Provides a list of available commands when using Scrim Randomizer Bot.
+`!r help` - Provides a list of available commands when using Sentinel Bot.
 
 `!r teams` - Creates a new poll where you can select users to be randomized.
 

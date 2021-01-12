@@ -45,23 +45,27 @@ client.on("message", async msg => {
   }
   // Check if the cooldowns Collection has the command set in it yet. If not, then add it in
   if (!cooldowns.has(command.name)) {
-	  cooldowns.set(command.name, 0);
+	  cooldowns.set(command.name, new Discord.Collection());
   }
   // Current timestamp
   const now = Date.now();
   // Get the timestamp for the triggered command
-  const timestamp = cooldowns.get(command.name);
+  const timestamps = cooldowns.get(command.name);
   // Gets the necessary cooldown amount, defaulting to 1. Convert to milliseconds
   const cooldownAmount = (command.cooldown || 1) * 1000;
-  // Calculate when the user will be able to reuse the same command again
-  const expirationTime = timestamp + cooldownAmount;
-  // If the command has recently been used, return
-  if (now < expirationTime) {
-    const timeLeft = (expirationTime - now) / 1000;
-    return msg.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before using the \`${command.name}\` command.`);
+
+  if (timestamps.has(msg.guild.id)) {
+    // Calculate when the user will be able to reuse the same command again
+    const expirationTime = timestamps.get(msg.guild.id) + cooldownAmount;
+    // If the command has recently been used, return
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      return msg.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before using the \`${command.name}\` command.`);
+    }
   }
   // Set the command timestamp usage to the current time
-  cooldowns.set(command.name, now);
+  timestamps.set(msg.guild.id, now);
+  setTimeout(() => timestamps.delete(msg.guild.id), cooldownAmount);
   // Execute commands
   try {
     if (!(msg.guild.id in randomizedUsers)) {

@@ -6,8 +6,6 @@ const fs = require("fs");
 const Discord = require("discord.js");
 // Create Discord client and set command files
 const client = new Discord.Client();
-// Set the client user's activity
-client.user.setActivity("!r help", { type: "PLAYING" })
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
@@ -25,6 +23,8 @@ let randomizedUsers = new Discord.Collection();
 // Ready event
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  // Set the client user's activity
+  client.user.setActivity("!r help", { type: "PLAYING" })
 });
 
 // Message event

@@ -14,7 +14,7 @@ module.exports = {
                             **!r same** - Randomizes the same list of users that was chosen previously.\n\n \
                             **!r sr [same]** - Generates random champions and builds for Ultimate Bravery. Use the optional same keyword to randomize the same users.\n\n \
                             **!r aram [same]** - Generates random champions and builds for ARAM. Use the optional same keyword to randomize the same users.\n\n \
-                            **!r reroll [sr/aram]** - Rerolls your current champion and build for Summoner's Rift/ARAM.");
+                            **!r reroll <sr/aram>** - Rerolls your current champion and build for Summoner's Rift/ARAM.");
         msg.channel.send(embed);
 	},
 };

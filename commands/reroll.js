@@ -1,4 +1,5 @@
 const DisplayBuild = require("../displayBuild.js");
+const fs = require("fs");
 const { spawnSync } = require("child_process");
 
 // Export command
@@ -20,8 +21,8 @@ module.exports = {
                     break;
                 }
             }
-            if (index === -1 || randomizedUsers.length < 2) {
-                msg.reply("Please generate teams before rerolling.");
+            if (index === -1 || randomizedUsers.length < 2 || !fs.existsSync(`./result${guildId}.jpg`)) {
+                msg.reply("Please generate teams and builds before rerolling.");
                 return;
             }
             randomizedUsers = randomizedUsers.map(user => user.split(" ").join("_"));

@@ -11,7 +11,7 @@ module.exports = {
             guildId = args[args.length - 2];
             randomizedUsers = args[args.length - 1];
             let success = false;
-            if (args[0] === randomizedUsers) {
+            if (args[1] === randomizedUsers) {
                 success = await Teams.createPoll(msg, randomizedUsers);
             }
             if (success || args[0] === "same") {

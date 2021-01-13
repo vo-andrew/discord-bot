@@ -126,7 +126,7 @@ def reroll_build(people, index, guild_id, aram=False):
 
 if __name__ == "__main__":
     # Retrieve arguments from command line
-    people, aram_bool, reroll_bool, guild_id = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true", int(sys.argv[5])
+    people, aram_bool, reroll_bool, guild_id = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true", sys.argv[5]
     if reroll_bool:
         index = int(sys.argv[4])
         reroll_build(people, index, guild_id, aram_bool)

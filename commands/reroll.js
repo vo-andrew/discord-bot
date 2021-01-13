@@ -1,4 +1,3 @@
-const Teams = require("./teams.js");
 const DisplayBuild = require("../displayBuild.js");
 const { spawnSync } = require("child_process");
 
@@ -8,7 +7,7 @@ module.exports = {
     cooldown: 5,
     guildOnly: true,
         async execute(msg, args) {
-            if (args.length !== 2) {
+            if (args.length !== 3) {
                 msg.reply("The correct usage of the \`reroll\` command is \`!r reroll <sr/aram>\`. Ex: \`!r reroll sr\`.");
                 return;
             }

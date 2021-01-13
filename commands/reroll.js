@@ -20,7 +20,7 @@ module.exports = {
                     break;
                 }
             }
-            if (index === -1) {
+            if (index === -1 || randomizedUsers.length < 2) {
                 msg.reply("Please generate teams before rerolling.");
                 return;
             }

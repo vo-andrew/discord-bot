@@ -73,6 +73,7 @@ client.on("message", async msg => {
     if (!(msg.guild.id in randomizedUsers)) {
       randomizedUsers[msg.guild.id] = [];
     }
+    args.push(msg.guild.id);
     args.push(randomizedUsers[msg.guild.id]);
 	  command.execute(msg, args);
   } catch(error) {

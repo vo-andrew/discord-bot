@@ -12,6 +12,7 @@ module.exports = {
                 msg.reply("The correct usage of the \`reroll\` command is \`!r reroll <sr/aram>\`. Ex: \`!r reroll sr\`.");
                 return;
             }
+            guildId = args[args.length - 2];
             randomizedUsers = args[args.length - 1];
             let index = -1;
             for (let i = 0; i < randomizedUsers.length; i += 1) {
@@ -26,9 +27,9 @@ module.exports = {
             }
             randomizedUsers = randomizedUsers.map(user => user.split(" ").join("_"));
             if (args[0] === "sr") {
-                await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "false", "true", `${index}`]);
+                await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "false", "true", `${index}`, `${guildId}`]);
             } else if (args[0] === "aram") {
-                await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "true", "true", `${index}`]);
+                await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "true", "true", `${index}`, `${guildId}`]);
             } else {
                 msg.reply("You did not specify the gamemode you wanted to reroll for.");
                 return;

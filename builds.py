@@ -6,7 +6,7 @@ import matplotlib.gridspec as gridspec
 import numpy as np
 import sys
 
-def generate_builds(people, aram=False):
+def generate_builds(people, guild_id, aram=False):
     num_people = len(people)
     if num_people < 2:
         return
@@ -55,18 +55,18 @@ def generate_builds(people, aram=False):
         ax10 = fig.add_subplot(gs[1, 5])
         ax10.set_axis_off()
         ax10.imshow(plt.imread("./completed_items/{}.png".format(random_item_ids[5])))
-        plt.savefig("build.jpg", bbox_inches="tight", pad_inches=0.1)
+        plt.savefig("build{}.jpg".format(guild_id), bbox_inches="tight", pad_inches=0.1)
         plt.close(fig)
 
         col = 0
         if pos >= ceil(num_people / 2):
             col = 1
 
-        canvas[((pos%(ceil(num_people/2)))*xdim):(((pos%(ceil(num_people/2)))+1)*xdim),(col*ydim):((col+1)*ydim),:] = plt.imread("./build.jpg") / 255.0
+        canvas[((pos%(ceil(num_people/2)))*xdim):(((pos%(ceil(num_people/2)))+1)*xdim),(col*ydim):((col+1)*ydim),:] = plt.imread("./build{}.jpg".format(guild_id)) / 255.0
 
-    plt.imsave("./result.jpg", canvas)
+    plt.imsave("./result{}.jpg".format(guild_id), canvas)
 
-def reroll_build(people, index, aram=False):
+def reroll_build(people, index, guild_id, aram=False):
     num_people = len(people)
     if num_people < 2:
         return
@@ -112,23 +112,23 @@ def reroll_build(people, index, aram=False):
     ax10 = fig.add_subplot(gs[1, 5])
     ax10.set_axis_off()
     ax10.imshow(plt.imread("./completed_items/{}.png".format(random_item_ids[5])))
-    plt.savefig("build.jpg", bbox_inches="tight", pad_inches=0.1)
+    plt.savefig("build{}.jpg".format(guild_id), bbox_inches="tight", pad_inches=0.1)
     plt.close(fig)
 
     col = 0
     if index >= ceil(num_people / 2):
         col = 1
 
-    canvas = plt.imread("./result.jpg") / 255.0
-    canvas[((index%(ceil(num_people/2)))*xdim):(((index%(ceil(num_people/2)))+1)*xdim),(col*ydim):((col+1)*ydim),:] = plt.imread("./build.jpg") / 255.0
+    canvas = plt.imread("./result{}.jpg".format(guild_id)) / 255.0
+    canvas[((index%(ceil(num_people/2)))*xdim):(((index%(ceil(num_people/2)))+1)*xdim),(col*ydim):((col+1)*ydim),:] = plt.imread("./build{}.jpg".format(guild_id)) / 255.0
 
-    plt.imsave("./result.jpg", canvas)
+    plt.imsave("./result{}.jpg".format(guild_id), canvas)
 
 if __name__ == "__main__":
     # Retrieve arguments from command line
-    people, aram_bool, reroll_bool = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true"
+    people, aram_bool, reroll_bool, guild_id = sys.argv[1].split(" "), sys.argv[2] == "true", sys.argv[3] == "true", int(sys.argv[5])
     if reroll_bool:
         index = int(sys.argv[4])
-        reroll_build(people, index, aram_bool)
+        reroll_build(people, index, guild_id, aram_bool)
     else:
-        generate_builds(people, aram_bool)
+        generate_builds(people, guild_id, aram_bool)

@@ -8,6 +8,7 @@ module.exports = {
     cooldown: 30,
     guildOnly: true,
         async execute(msg, args) {
+            guildId = args[args.length - 2];
             randomizedUsers = args[args.length - 1];
             let success = false;
             if (args[0] === randomizedUsers) {
@@ -17,7 +18,7 @@ module.exports = {
                 success = Teams.shuffle(msg, randomizedUsers);
                 if (success) {
                     randomizedUsers = randomizedUsers.map(user => user.split(" ").join("_"));
-                    await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "false", "false"]);
+                    await spawnSync("python3", ["builds.py", `${randomizedUsers.join(" ")}`, "false", "false", "-1", `${guildId}`]);
                     DisplayBuild.displayBuild(msg);
                 }
             }

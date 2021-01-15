@@ -9,7 +9,7 @@ module.exports = {
             .setTitle("Features & Commands")
             .setColor("BLUE")
             .setAuthor(name=msg.client.user.username, icon_url=msg.client.user.avatarURL())
-            .setDescription("**!r help** - Provides a list of available commands when using Scrim Randomizer Bot.\n\n \
+            .setDescription("**!r help** - Provides a list of available commands when using Sentinel Bot.\n\n \
                             **!r teams** - Creates a new poll where you can select users to be randomized.\n\n \
                             **!r same** - Randomizes the same list of users that was chosen previously.\n\n \
                             **!r sr [same]** - Generates random champions and builds for Ultimate Bravery. Use the optional same keyword to randomize the same users.\n\n \

@@ -3,6 +3,8 @@ import random
 from math import ceil
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+from matplotlib import rcParams
+rcParams['font.family'] = 'monospace'
 import numpy as np
 import sys
 
@@ -31,7 +33,7 @@ def generate_builds(people, guild_id, aram=False):
         gs = fig.add_gridspec(7, 7)
         gs.update(wspace=-0.5, hspace=0.03)
         ax1 = fig.add_subplot(gs[:2, :2])
-        ax1.set_title("{}".format(people[pos][:7]))
+        ax1.set_title("{}".format(people[pos][:10]))
         ax1.imshow(plt.imread("./champs/{}.png".format(random_champ_ids[pos])))
         ax1.set_axis_off()
         ax2 = fig.add_subplot(gs[0, 3])
@@ -97,7 +99,7 @@ def reroll_build(people, index, guild_id, aram=False):
     gs = fig.add_gridspec(7, 7)
     gs.update(wspace=-0.5, hspace=0.03)
     ax1 = fig.add_subplot(gs[:2, :2])
-    ax1.set_title("{}".format(people[index][:7]))
+    ax1.set_title("{}".format(people[index][:10]))
     ax1.imshow(plt.imread("./champs/{}.png".format(random_champ_id)))
     ax1.set_axis_off()
     ax2 = fig.add_subplot(gs[0, 3])

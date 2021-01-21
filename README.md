@@ -15,7 +15,7 @@
   </a>
 
   <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/pypi/pyversions/Red-Discordbot">
+    <img src="https://img.shields.io/badge/python-3.8-blue">
   </a>
   <a href="https://discord.js.org/#/">
      <img src="https://img.shields.io/badge/discord-js-yellow">

@@ -34,7 +34,7 @@ Sentinel Bot is a Discord bot that randomly creates teams of users and generates
 
 ## How does it work?
 
-When a user sends a bot command to Sentinel Bot, the user can select which members in the Discord server will participate in the randomized teams. After selecting users, the bot will send a GET request to the Riot Games API to generate builds for each person in the teams.
+When a user sends a bot command to Sentinel Bot, the user can select which members in the Discord server will participate in the randomized teams. After selecting users, the bot will randomly select champions, items, skills, and runes for each user and display them on a embedded image message if a game mode is specified.
 
 ## Features & Commands
 

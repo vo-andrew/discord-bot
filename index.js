@@ -53,8 +53,8 @@ client.on("message", async msg => {
   const now = Date.now();
   // Get the timestamp for the triggered command
   const timestamps = cooldowns.get(command.name);
-  // Gets the necessary cooldown amount, defaulting to 1. Convert to milliseconds
-  const cooldownAmount = (command.cooldown || 1) * 1000;
+  // Gets the necessary cooldown amount, defaulting to 3. Convert to milliseconds
+  const cooldownAmount = (command.cooldown || 3) * 1000;
 
   if (timestamps.has(msg.guild.id)) {
     // Calculate when the user will be able to reuse the same command again

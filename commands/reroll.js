@@ -22,7 +22,7 @@ module.exports = {
                 }
             }
             if (index === -1 || randomizedUsers.length < 2 || !fs.existsSync(`./result${guildId}.jpg`)) {
-                msg.reply("Please generate teams and builds before rerolling.");
+                msg.reply("Please generate teams and builds before rerolling using \`!r <sr/aram>\`. Ex: \`!r sr\`.");
                 return;
             }
             randomizedUsers = randomizedUsers.map(user => user.split(" ").join("_"));
